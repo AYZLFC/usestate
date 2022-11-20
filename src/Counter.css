@@ -1,0 +1,23 @@
+h1 {
+    color: green;
+    font-family: sans-serif;
+}
+
+button {
+    background-color: blue; 
+    color:azure;
+    margin:10%;
+}
+
+button:hover{
+    background-color:greenyellow;
+    color: black;
+}
+
+.Counter {
+    background-color: bisque;
+}
+
+p {
+    color: red;
+}
