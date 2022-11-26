@@ -7,6 +7,9 @@ function Counter(props) {
     function incr(){
         setCount(
             function(oldCount){
+                if (oldCount + props.delta > props.maxNum){
+                  return 1
+                }
                 return oldCount + props.delta
             }
         )
