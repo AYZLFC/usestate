@@ -6,6 +6,7 @@ function App() {
   const [delta, setDelta] = useState(1)
   const [maxNum, setMaxNum] = useState(1)
   const [reset, setReset] = useState(false)
+  const [ maxValue, setMaxValue] = useState(1)
 
   function handleDelta(event1){
     //console.log(event);
@@ -21,16 +22,27 @@ function App() {
     setReset(data)
   }
 
+  function getCountValue(data2){
+    setMaxValue(
+      function(oldMaxValue){
+        return (Math.max(oldMaxValue,data2))
+      }
+      
+    )
+  }
+
   return (
     <div className="App">
       Usestate
       <br/>Delta: 
       <input type= "number" value={delta} onChange={handleDelta}/>
       <br/>
-      <br/>Max Number: 
+      <br/>Limit: 
       <input type= "number" value={maxNum} onChange={handleMaxNum}/>
-      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset}/>
-      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset}/>
+      <br/>
+      Maximum value is: {maxValue}
+      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset} getCountValue = {getCountValue}/>
+      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset} getCountValue = {getCountValue}/>
 
     </div>
   );
