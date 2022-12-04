@@ -5,6 +5,7 @@ import { useState } from "react";
 function App() {
   const [delta, setDelta] = useState(1)
   const [maxNum, setMaxNum] = useState(1)
+  const [reset, setReset] = useState(false)
 
   function handleDelta(event1){
     //console.log(event);
@@ -15,6 +16,11 @@ function App() {
     setMaxNum(Number(event2.target.value))
   }
 
+  function getReset(data){
+    console.log(data)
+    setReset(data)
+  }
+
   return (
     <div className="App">
       Usestate
@@ -23,8 +29,8 @@ function App() {
       <br/>
       <br/>Max Number: 
       <input type= "number" value={maxNum} onChange={handleMaxNum}/>
-      <Counter delta = {delta} maxNum = {maxNum} />
-      <Counter delta = {delta} maxNum = {maxNum}/>
+      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset}/>
+      <Counter delta = {delta} maxNum = {maxNum} getReset = {getReset} needToReset = {reset}/>
 
     </div>
   );
